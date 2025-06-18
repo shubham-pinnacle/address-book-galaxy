@@ -2,7 +2,7 @@
 import React, { useState, useCallback, useMemo } from 'react';
 import {
   Box,
-  Grid,
+  Grid2 as Grid,
   TextField,
   Button,
   Typography,
@@ -180,7 +180,7 @@ export const ContactList: React.FC = () => {
 
           <Grid container spacing={3}>
             {contactsToDisplay.map((contact) => (
-              <Grid item xs={12} sm={6} md={4} lg={3} key={contact.id}>
+              <Grid xs={12} sm={6} md={4} lg={3} key={contact.id}>
                 <ContactCard contact={contact} />
               </Grid>
             ))}
