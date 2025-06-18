@@ -1,7 +1,35 @@
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Container, CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 import { ContactList } from '../components/ContactList';
+
+// Create a wrapper that filters out development props
+const createFilteredThemeProvider = <T extends { theme: any }>(
+  Component: React.ComponentType<T>
+) => {
+  const FilteredComponent = (props: T & { children?: React.ReactNode }) => {
+    // Filter out development-related props
+    const filteredProps = useMemo(() => {
+      const newProps = { ...props } as any;
+      Object.keys(newProps).forEach(key => {
+        if (key.startsWith('data-')) {
+          delete newProps[key];
+        }
+      });
+      return newProps as T;
+    }, [props]);
+
+    return <Component {...filteredProps} />;
+  };
+  
+  // Set display name for better debugging
+  FilteredComponent.displayName = `Filtered${Component.displayName || Component.name || 'Component'}`;
+  
+  return FilteredComponent;
+};
+
+// Create filtered versions of the MUI components
+const FilteredThemeProvider = createFilteredThemeProvider(ThemeProvider);
 
 const theme = createTheme({
   palette: {
@@ -48,13 +76,15 @@ const theme = createTheme({
   },
 });
 
+// FilteredThemeProvider is now used to wrap ThemeProvider and filter out development props
+
 export const ContactListPage: React.FC = () => {
   return (
-    <ThemeProvider theme={theme}>
+    <FilteredThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="xl">
         <ContactList />
       </Container>
-    </ThemeProvider>
+    </FilteredThemeProvider>
   );
 };

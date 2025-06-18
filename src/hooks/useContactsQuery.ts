@@ -2,7 +2,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { Contact, ContactsResponse } from '../types/contact';
 
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = 'http://localhost:3001';
 
 const fetchContacts = async (
   page: number = 1,
@@ -10,30 +10,39 @@ const fetchContacts = async (
   search: string = '',
   favouriteOnly: boolean = false
 ): Promise<ContactsResponse> => {
-  const params = new URLSearchParams({
-    _page: page.toString(),
-    _limit: limit.toString(),
-  });
-
-  if (search) {
-    params.append('q', search);
-  }
-
-  if (favouriteOnly) {
-    params.append('favourite', 'true');
-  }
-
-  const response = await fetch(`${API_BASE_URL}/contacts?${params}`);
-  
+  // First, get all contacts
+  const response = await fetch(`${API_BASE_URL}/contacts`);
   if (!response.ok) {
     throw new Error('Failed to fetch contacts');
   }
-
-  const data = await response.json();
-  const total = parseInt(response.headers.get('X-Total-Count') || '0');
+  
+  let allContacts = await response.json();
+  
+  // Apply filters client-side for better performance
+  let filteredContacts = [...allContacts];
+  
+  // Apply search filter
+  if (search) {
+    const searchLower = search.toLowerCase();
+    filteredContacts = filteredContacts.filter(contact => 
+      contact.name.toLowerCase().includes(searchLower)
+    );
+  }
+  
+  // Apply favourite filter
+  if (favouriteOnly) {
+    filteredContacts = filteredContacts.filter(contact => contact.favourite === true);
+  }
+  
+  const total = filteredContacts.length;
+  
+  // Apply pagination
+  const start = (page - 1) * limit;
+  const end = start + limit;
+  const paginatedContacts = filteredContacts.slice(start, end);
   
   return {
-    data,
+    data: paginatedContacts,
     total,
     page,
     limit,
@@ -41,7 +50,7 @@ const fetchContacts = async (
   };
 };
 
-const fetchContact = async (id: number): Promise<Contact> => {
+const fetchContact = async (id: string): Promise<Contact> => {
   const response = await fetch(`${API_BASE_URL}/contacts/${id}`);
   
   if (!response.ok) {
@@ -63,7 +72,7 @@ export const useContactsQuery = (
   });
 };
 
-export const useContactQuery = (id: number | null) => {
+export const useContactQuery = (id: string | null) => {
   return useQuery({
     queryKey: ['contact', id],
     queryFn: () => fetchContact(id!),

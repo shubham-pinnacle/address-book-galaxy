@@ -4,8 +4,8 @@ import { create } from 'zustand';
 interface ContactStore {
   searchQuery: string;
   setSearchQuery: (query: string) => void;
-  selectedContactId: number | null;
-  setSelectedContactId: (id: number | null) => void;
+  selectedContactId: string | null;
+  setSelectedContactId: (id: string | null) => void;
   showFavouritesOnly: boolean;
   toggleShowFavouritesOnly: () => void;
   currentPage: number;
@@ -14,8 +14,8 @@ interface ContactStore {
   setIsContactModalOpen: (open: boolean) => void;
   isContactFormOpen: boolean;
   setIsContactFormOpen: (open: boolean) => void;
-  editingContactId: number | null;
-  setEditingContactId: (id: number | null) => void;
+  editingContactId: string | null;
+  setEditingContactId: (id: string | null) => void;
 }
 
 export const useContactStore = create<ContactStore>((set) => ({

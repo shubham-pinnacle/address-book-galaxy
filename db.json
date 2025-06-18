@@ -1,24 +1,23 @@
-
 {
   "contacts": [
     {
-      "id": 1,
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "phone": "123-456-7890",
-      "address": "123 Main St, Anytown, USA 12345",
-      "favourite": true
+      "favourite": true,
+      "id": "1",
+      "name": "Shubham Ghaturle",
+      "email": "shubham.g@yopmail.com",
+      "phone": "999-444-5555",
+      "address": "Nagpur"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Jane Smith",
       "email": "jane.smith@example.com",
       "phone": "987-654-3210",
-      "address": "456 Oak Ave, Somewhere, USA 67890",
-      "favourite": false
+      "address": "456 Oak Ave, Somewhere, USA 54321",
+      "favourite": true
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Mike Johnson",
       "email": "mike.johnson@example.com",
       "phone": "555-123-4567",
@@ -26,15 +25,15 @@
       "favourite": true
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Sarah Williams",
       "email": "sarah.williams@example.com",
       "phone": "444-555-6666",
       "address": "321 Elm St, Nowhere, USA 22222",
-      "favourite": false
+      "favourite": true
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "David Brown",
       "email": "david.brown@example.com",
       "phone": "777-888-9999",

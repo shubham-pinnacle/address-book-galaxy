@@ -19,7 +19,7 @@ import { ContactCard } from './ContactCard';
 import { Pagination } from './Pagination';
 import { ContactModal } from './ContactModal';
 import { ContactForm } from './ContactForm';
-import { useDebounce } from '../hooks/useDebounce';
+
 
 export const ContactList: React.FC = () => {
   const {
@@ -34,13 +34,14 @@ export const ContactList: React.FC = () => {
   } = useContactStore();
 
   const [localSearch, setLocalSearch] = useState(searchQuery);
-  const debouncedSearch = useDebounce(localSearch, 300);
 
-  // Update global search when debounced value changes
-  React.useEffect(() => {
-    setSearchQuery(debouncedSearch);
-    setCurrentPage(1); // Reset to first page on search
-  }, [debouncedSearch, setSearchQuery, setCurrentPage]);
+  // Update search query immediately when input changes
+  const handleSearchChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setLocalSearch(value);
+    setSearchQuery(value);
+    setCurrentPage(1); // Reset to first page on search change
+  }, [setSearchQuery, setCurrentPage]);
 
   const { data, isLoading, error, refetch } = useContactsQuery(
     currentPage,
@@ -48,9 +49,7 @@ export const ContactList: React.FC = () => {
     showFavouritesOnly
   );
 
-  const handleSearchChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
-    setLocalSearch(event.target.value);
-  }, []);
+
 
   const handlePageChange = useCallback((page: number) => {
     setCurrentPage(page);

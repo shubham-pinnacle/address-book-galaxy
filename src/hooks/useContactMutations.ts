@@ -2,7 +2,7 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { Contact, ContactFormData } from '../types/contact';
 
-const API_BASE_URL = 'http://localhost:3001/api';
+const API_BASE_URL = 'http://localhost:3001';
 
 const createContact = async (contactData: ContactFormData): Promise<Contact> => {
   const response = await fetch(`${API_BASE_URL}/contacts`, {
@@ -20,13 +20,24 @@ const createContact = async (contactData: ContactFormData): Promise<Contact> => 
   return response.json();
 };
 
-const updateContact = async ({ id, data }: { id: number; data: Partial<ContactFormData> }): Promise<Contact> => {
+const updateContact = async ({ id, data }: { id: string; data: Partial<ContactFormData> }): Promise<Contact> => {
+  // First, get the existing contact data
+  const getResponse = await fetch(`${API_BASE_URL}/contacts/${id}`);
+  if (!getResponse.ok) {
+    throw new Error('Failed to fetch contact for update');
+  }
+  const existingData = await getResponse.json();
+
+  // Merge the existing data with the updates
+  const updatedData = { ...existingData, ...data };
+
+  // Send the complete updated data
   const response = await fetch(`${API_BASE_URL}/contacts/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(data),
+    body: JSON.stringify(updatedData),
   });
 
   if (!response.ok) {
@@ -36,7 +47,7 @@ const updateContact = async ({ id, data }: { id: number; data: Partial<ContactFo
   return response.json();
 };
 
-const deleteContact = async (id: number): Promise<void> => {
+const deleteContact = async (id: string): Promise<void> => {
   const response = await fetch(`${API_BASE_URL}/contacts/${id}`, {
     method: 'DELETE',
   });
