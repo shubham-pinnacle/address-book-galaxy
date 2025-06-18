@@ -181,13 +181,20 @@ export const ContactList: React.FC = () => {
             </Typography>
           </Box>
 
-          <Grid container spacing={3}>
+          <Box sx={{ 
+            display: 'grid', 
+            gridTemplateColumns: { 
+              xs: '1fr', 
+              sm: 'repeat(2, 1fr)', 
+              md: 'repeat(3, 1fr)', 
+              lg: 'repeat(4, 1fr)' 
+            }, 
+            gap: 3 
+          }}>
             {contactsToDisplay.map((contact) => (
-              <Grid item xs={12} sm={6} md={4} lg={3} key={contact.id}>
-                <ContactCard contact={contact} />
-              </Grid>
+              <ContactCard key={contact.id} contact={contact} />
             ))}
-          </Grid>
+          </Box>
 
           <Pagination
             currentPage={currentPage}
