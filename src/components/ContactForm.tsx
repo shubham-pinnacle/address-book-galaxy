@@ -101,9 +101,14 @@ export const ContactForm: React.FC = () => {
       }
       handleClose();
     } catch (error) {
+      console.error('Error saving contact:', error);
+      const errorMessage = error instanceof Error 
+        ? error.message 
+        : 'Failed to save contact. Please try again.';
+      
       toast({
         title: "Error",
-        description: editingContactId ? "Failed to update contact" : "Failed to create contact",
+        description: errorMessage,
         variant: "destructive",
       });
     }

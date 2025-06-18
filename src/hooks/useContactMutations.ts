@@ -4,7 +4,34 @@ import { Contact, ContactFormData } from '../types/contact';
 
 const API_BASE_URL = 'http://localhost:3001';
 
+const checkExistingContact = async (email: string, phone: string): Promise<{ exists: boolean; field?: 'email' | 'phone' }> => {
+  const response = await fetch(`${API_BASE_URL}/contacts`);
+  if (!response.ok) {
+    throw new Error('Failed to fetch contacts');
+  }
+  const contacts = await response.json();
+  
+  const existingEmail = contacts.find((contact: Contact) => contact.email.toLowerCase() === email.toLowerCase());
+  if (existingEmail) {
+    return { exists: true, field: 'email' };
+  }
+  
+  const existingPhone = contacts.find((contact: Contact) => contact.phone === phone);
+  if (existingPhone) {
+    return { exists: true, field: 'phone' };
+  }
+  
+  return { exists: false };
+};
+
 const createContact = async (contactData: ContactFormData): Promise<Contact> => {
+  // Check for existing contact with same email or phone
+  const { exists, field } = await checkExistingContact(contactData.email, contactData.phone);
+  
+  if (exists) {
+    throw new Error(`A contact with this ${field} already exists`);
+  }
+  
   const response = await fetch(`${API_BASE_URL}/contacts`, {
     method: 'POST',
     headers: {

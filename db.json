@@ -63,7 +63,8 @@
       "phone": "777-888-9999",
       "address": "654 Maple Dr, Anywhere, USA 33333",
       "favourite": true
-    }, {
+    },
+    {
       "id": "3",
       "name": "Mike Johnson",
       "email": "mike.johnson@example.com",
