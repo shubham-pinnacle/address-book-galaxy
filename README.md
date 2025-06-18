@@ -1,73 +1,154 @@
-# Welcome to your Lovable project
 
-## Project info
+# Contact Manager - Professional Contact Management App
 
-**URL**: https://lovable.dev/projects/0958aa0d-dc83-492a-96a0-c70bb38ab846
+A modern, professional contact management application built with React, Material-UI, Zustand, and TanStack Query.
 
-## How can I edit this code?
+## 🚀 Features
 
-There are several ways of editing your application.
+- **Contact Management**: Add, edit, view, and delete contacts
+- **Advanced Search**: Real-time search with server-side filtering
+- **Favorites System**: Mark contacts as favorites and filter by favorites
+- **Responsive Design**: Works perfectly on desktop and mobile
+- **Form Validation**: Comprehensive validation with React Hook Form
+- **Modern UI**: Clean, professional interface with Material-UI
+- **State Management**: Efficient state management with Zustand and TanStack Query
+- **Pagination**: Smooth pagination for large contact lists
 
-**Use Lovable**
+## 🛠️ Technology Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/0958aa0d-dc83-492a-96a0-c70bb38ab846) and start prompting.
+- **React 18** - Modern React with hooks
+- **Material-UI (MUI) v5** - Professional UI components
+- **Zustand v5** - Lightweight state management for UI state
+- **TanStack Query v5** - Server state management with caching
+- **React Hook Form v7** - Form handling with validation
+- **TypeScript** - Type safety throughout the application
+- **json-server** - Mock REST API for development
 
-Changes made via Lovable will be committed automatically to this repo.
+## 📦 Installation & Setup
 
-**Use your preferred IDE**
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+2. **Start the json-server (mock API):**
+   ```bash
+   npx json-server --watch db.json --port 3001 --routes routes.json
+   ```
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+3. **Start the development server:**
+   ```bash
+   npm run dev
+   ```
 
-Follow these steps:
+4. **Open your browser:**
+   Navigate to `http://localhost:8080`
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## 🔧 API Configuration
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+The app expects a JSON server running on `http://localhost:3001/api` with the following endpoints:
 
-# Step 3: Install the necessary dependencies.
-npm i
+- `GET /api/contacts` - Get paginated contacts
+- `POST /api/contacts` - Create a new contact
+- `PUT /api/contacts/:id` - Update a contact
+- `DELETE /api/contacts/:id` - Delete a contact
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### Sample Contact Object:
+```json
+{
+  "id": 1,
+  "name": "John Doe",
+  "email": "john@example.com",
+  "phone": "123-456-7890",
+  "address": "123 Main St",
+  "favourite": true
+}
 ```
 
-**Edit a file directly in GitHub**
+## 🎯 Usage
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Adding Contacts
+1. Click the "Add Contact" button
+2. Fill in the contact information
+3. Optionally mark as favorite
+4. Click "Create" to save
 
-**Use GitHub Codespaces**
+### Editing Contacts
+1. Click on any contact card to open details
+2. Click the "Edit" button in the modal
+3. Update the information
+4. Click "Update" to save changes
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Search and Filter
+- Use the search bar to find contacts by name
+- Toggle "Show Favourites Only" to filter favorites
+- Search is performed server-side with real-time results
 
-## What technologies are used for this project?
+### Managing Favorites
+- Click the heart icon on any contact card or in the detail modal
+- Use the "Show Favourites Only" toggle to filter favorites
 
-This project is built with:
+## 🏗️ Project Structure
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```
+src/
+├── components/
+│   ├── ContactCard.tsx      # Individual contact card
+│   ├── ContactForm.tsx      # Add/Edit contact form
+│   ├── ContactList.tsx      # Main contact list component
+│   ├── ContactModal.tsx     # Contact details modal
+│   └── Pagination.tsx       # Pagination component
+├── hooks/
+│   ├── useContactsQuery.ts  # TanStack Query hooks
+│   ├── useContactMutations.ts # Mutation hooks
+│   └── useDebounce.ts       # Debounce hook for search
+├── store/
+│   └── useContactStore.ts   # Zustand store for UI state
+├── types/
+│   └── contact.ts           # TypeScript interfaces
+├── pages/
+│   ├── ContactListPage.tsx  # Main page component
+│   └── Index.tsx           # Root page
+└── main.tsx                # App entry point
+```
 
-## How can I deploy this project?
+## 🎨 Design Features
 
-Simply open [Lovable](https://lovable.dev/projects/0958aa0d-dc83-492a-96a0-c70bb38ab846) and click on Share -> Publish.
+- **Material Design**: Follows Google's Material Design principles
+- **Responsive Layout**: Grid system that adapts to screen sizes
+- **Smooth Animations**: Hover effects and transitions
+- **Professional Theme**: Clean color scheme and typography
+- **Accessible**: Proper ARIA labels and keyboard navigation
 
-## Can I connect a custom domain to my Lovable project?
+## 🔄 State Management
 
-Yes, you can!
+- **Zustand**: Manages UI state (search, selected contact, modals, pagination)
+- **TanStack Query**: Handles server state with automatic caching and invalidation
+- **React Hook Form**: Manages form state with validation
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📱 Responsive Design
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+The application is fully responsive and works on:
+- Desktop computers
+- Tablets
+- Mobile phones
+
+## 🚀 Performance Features
+
+- **Debounced Search**: Reduces API calls during typing
+- **Query Caching**: TanStack Query caches responses for better performance
+- **Optimistic Updates**: UI updates immediately for better UX
+- **Code Splitting**: Components are loaded efficiently
+
+## 🎯 Future Enhancements
+
+- Export contacts to CSV/PDF
+- Contact groups and categories
+- Advanced search filters
+- Contact history tracking
+- Bulk operations
+- Contact import functionality
+
+## 📄 License
+
+This project is built with Lovable and is available for educational and commercial use.
