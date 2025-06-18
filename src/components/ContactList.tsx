@@ -77,7 +77,11 @@ export const ContactList: React.FC = () => {
         <Alert severity="error" action={
           <Button onClick={() => refetch()}>Retry</Button>
         }>
-          Failed to load contacts. Please check if the server is running.
+          Failed to load contacts. Please check if the server is running on port 3001.
+          <br />
+          <Typography variant="body2" sx={{ mt: 1 }}>
+            To start the JSON server, run: <code>npx json-server --watch db.json --port 3001</code>
+          </Typography>
         </Alert>
       </Box>
     );
@@ -180,7 +184,7 @@ export const ContactList: React.FC = () => {
 
           <Grid container spacing={3}>
             {contactsToDisplay.map((contact) => (
-              <Grid xs={12} sm={6} md={4} lg={3} key={contact.id}>
+              <Grid item xs={12} sm={6} md={4} lg={3} key={contact.id}>
                 <ContactCard contact={contact} />
               </Grid>
             ))}
