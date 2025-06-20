@@ -22,6 +22,8 @@ import { ContactCard } from './ContactCard';
 import { Pagination } from './Pagination';
 import { ContactModal } from './ContactModal';
 import { ContactForm } from './ContactForm';
+import FloatingExportMenu from './FloatingExportMenu';
+import { exportContactsAsCSV, exportContactsAsVCF } from '../utils/exportUtils';
 
 
 export const ContactList: React.FC = () => {
@@ -240,6 +242,10 @@ export const ContactList: React.FC = () => {
       {/* Modals */}
       <ContactModal />
       <ContactForm />
+      <FloatingExportMenu
+        onExportCSV={() => exportContactsAsCSV(contactsToDisplay)}
+        onExportVCF={() => exportContactsAsVCF(contactsToDisplay)}
+      />
     </Box>
   );
 };
