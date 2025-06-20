@@ -36,6 +36,7 @@ export const ContactForm: React.FC = () => {
     setIsContactFormOpen,
     editingContactId,
     setEditingContactId,
+    setCurrentPage,
   } = useContactStore();
 
   const { data: contactData } = useContactQuery(editingContactId);
@@ -100,6 +101,7 @@ export const ContactForm: React.FC = () => {
           description: "Contact created successfully",
           variant: "success",
         });
+        setCurrentPage(1); // Ensure first page is shown after adding
       }
       handleClose();
     } catch (error) {
@@ -119,13 +121,34 @@ export const ContactForm: React.FC = () => {
   const isLoading = createContact.isPending || updateContact.isPending;
 
   return (
-    <Dialog open={isContactFormOpen} onClose={handleClose} maxWidth="sm" fullWidth>
+    <Dialog open={isContactFormOpen} onClose={handleClose} maxWidth="sm" fullWidth sx={{
+  '& .MuiDialog-paper': {
+    width: '100%',
+    m: { xs: 1, sm: 'auto' },
+    maxWidth: { xs: '95vw', sm: 600 },
+    minWidth: { xs: 'unset', sm: 400 },
+    boxSizing: 'border-box',
+  },
+}}>
       <DialogTitle>
         {editingContactId ? 'Edit Contact' : 'Add New Contact'}
       </DialogTitle>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <DialogContent>
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, pt: 1 }}>
+        <DialogContent sx={{
+  overflowX: 'hidden',
+  maxWidth: '100%',
+  p: { xs: 1.5, sm: 3 },
+  boxSizing: 'border-box',
+}}>
+          <Box sx={{
+  display: 'flex',
+  flexDirection: 'column',
+  gap: { xs: 1.5, sm: 2 },
+  pt: 1,
+  overflowX: 'hidden',
+  maxWidth: '100%',
+  px: { xs: 1, sm: 0 },
+}}>
             <Controller
               name="name"
               control={control}
@@ -136,6 +159,9 @@ export const ContactForm: React.FC = () => {
                   fullWidth
                   error={!!errors.name}
                   helperText={errors.name?.message}
+                  sx={{
+                    mb: { xs: 1, sm: 0 },
+                  }}
                 />
               )}
             />
@@ -151,6 +177,9 @@ export const ContactForm: React.FC = () => {
                   fullWidth
                   error={!!errors.email}
                   helperText={errors.email?.message}
+                  sx={{
+                    mb: { xs: 1, sm: 0 },
+                  }}
                 />
               )}
             />
@@ -166,6 +195,9 @@ export const ContactForm: React.FC = () => {
                   fullWidth
                   error={!!errors.phone}
                   helperText={errors.phone?.message}
+                  sx={{
+                    mb: { xs: 1, sm: 0 },
+                  }}
                 />
               )}
             />
@@ -182,6 +214,18 @@ export const ContactForm: React.FC = () => {
                   fullWidth
                   error={!!errors.address}
                   helperText={errors.address?.message}
+                  sx={{
+                    maxWidth: '100%',
+                    mb: { xs: 1, sm: 0 },
+                  }}
+                  inputProps={{
+                    style: {
+                      whiteSpace: 'pre-wrap',
+                      wordBreak: 'break-word',
+                      overflowX: 'hidden',
+                      maxWidth: '100%',
+                    }
+                  }}
                 />
               )}
             />
@@ -198,14 +242,26 @@ export const ContactForm: React.FC = () => {
             />
           </Box>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} disabled={isLoading}>
-            Cancel
-          </Button>
-          <Button
-            type="submit"
-            variant="contained"
-            disabled={!isValid || isLoading}
+        <DialogActions sx={{
+  flexDirection: { xs: 'column', sm: 'row' },
+  gap: { xs: 1, sm: 2 },
+  px: { xs: 1, sm: 3 },
+  pb: { xs: 2, sm: 3 },
+}}>
+  <Button
+    onClick={handleClose}
+    disabled={isLoading}
+    fullWidth={true}
+    sx={{ minWidth: 100 }}
+  >
+    Cancel
+  </Button>
+  <Button
+    type="submit"
+    variant="contained"
+    disabled={!isValid || isLoading}
+    fullWidth={true}
+    sx={{ minWidth: 100 }}
             startIcon={isLoading ? <CircularProgress size={20} /> : null}
           >
             {editingContactId ? 'Update' : 'Create'}

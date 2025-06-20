@@ -65,6 +65,7 @@ export const ContactModal: React.FC = () => {
         toast({
           title: "Success",
           description: "Contact deleted successfully",
+          variant: "success",
         });
         handleClose();
       } catch (error) {

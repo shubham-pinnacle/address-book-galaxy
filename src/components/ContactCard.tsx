@@ -46,25 +46,40 @@ export const ContactCard: React.FC<ContactCardProps> = ({ contact }) => {
 
   return (
     <Card
-      sx={{
-        cursor: 'pointer',
-        transition: 'all 0.2s ease-in-out',
-        '&:hover': {
-          transform: 'translateY(-4px)',
-          boxShadow: 4,
-        },
-        position: 'relative',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-      }}
-      onClick={handleCardClick}
+  sx={{
+    cursor: 'pointer',
+    transition: 'all 0.2s ease-in-out',
+    '&:hover': {
+      transform: 'translateY(-4px)',
+      boxShadow: 4,
+    },
+    position: 'relative',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    maxWidth: '100%',
+    boxSizing: 'border-box',
+    overflowX: 'hidden',
+    p: { xs: 1, sm: 2 },
+  }}
+  onClick={handleCardClick}
     >
-      <CardContent sx={{ flexGrow: 1, pb: 1 }}>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2 }}>
-          <Typography variant="h6" component="h3" sx={{ fontWeight: 600, color: 'primary.main' }}>
-            {contact.name}
-          </Typography>
+      <CardContent sx={{ flexGrow: 1, pb: 1, maxWidth: '100%', overflowX: 'hidden', boxSizing: 'border-box' }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2, flexWrap: 'wrap', maxWidth: '100%', overflowX: 'hidden' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <Typography variant="h6" component="h3" sx={{ fontWeight: 600, color: 'primary.main', wordBreak: 'break-word', maxWidth: '100%' }}>
+              {contact.name}
+            </Typography>
+            {contact.favourite && (
+              <Chip
+                label="Favourite"
+                size="small"
+                color="primary"
+                variant="outlined"
+                sx={{ ml: 1 }}
+              />
+            )}
+          </Box>
           <IconButton
             size="small"
             onClick={handleToggleFavourite}
@@ -74,30 +89,16 @@ export const ContactCard: React.FC<ContactCardProps> = ({ contact }) => {
           </IconButton>
         </Box>
 
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, maxWidth: '100%', overflowX: 'hidden' }}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <Email sx={{ fontSize: 16, color: 'grey.600' }} />
-            <Typography variant="body2" color="textSecondary" noWrap>
+            <Typography variant="body2" color="textSecondary" sx={{ wordBreak: 'break-word', maxWidth: '100%' }}>
               {contact.email}
-            </Typography>
-          </Box>
-
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <Phone sx={{ fontSize: 16, color: 'grey.600' }} />
-            <Typography variant="body2" color="textSecondary">
-              {contact.phone}
-            </Typography>
-          </Box>
-
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <LocationOn sx={{ fontSize: 16, color: 'grey.600' }} />
-            <Typography variant="body2" color="textSecondary" noWrap>
-              {contact.address}
             </Typography>
           </Box>
         </Box>
 
-        {contact.favourite && (
+        {/* {contact.favourite && (
           <Box sx={{ mt: 2 }}>
             <Chip
               label="Favourite"
@@ -106,7 +107,7 @@ export const ContactCard: React.FC<ContactCardProps> = ({ contact }) => {
               variant="outlined"
             />
           </Box>
-        )}
+        )} */}
       </CardContent>
     </Card>
   );
