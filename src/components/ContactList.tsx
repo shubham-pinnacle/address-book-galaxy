@@ -14,6 +14,7 @@ import {
 } from '@mui/material';
 import { Search, Add, PersonAdd } from '@mui/icons-material';
 import { useContactStore } from '../store/useContactStore';
+import { useStore } from '../store';
 import { useContactsQuery } from '../hooks/useContactsQuery';
 import { ContactCard } from './ContactCard';
 import { Pagination } from './Pagination';
@@ -32,6 +33,7 @@ export const ContactList: React.FC = () => {
     setIsContactFormOpen,
     setEditingContactId,
   } = useContactStore();
+
 
   const [localSearch, setLocalSearch] = useState(searchQuery);
 
@@ -59,6 +61,8 @@ export const ContactList: React.FC = () => {
     setEditingContactId(null);
     setIsContactFormOpen(true);
   };
+
+
 
   const handleFavouriteToggle = useCallback(() => {
     toggleShowFavouritesOnly();
@@ -190,8 +194,8 @@ export const ContactList: React.FC = () => {
             }, 
             gap: 3 
           }}>
-            {contactsToDisplay.map((contact) => (
-              <ContactCard key={contact.id} contact={contact} />
+            {contactsToDisplay.map((contact, idx) => (
+              <ContactCard key={`${contact.id}-${idx}`} contact={contact} />
             ))}
           </Box>
 

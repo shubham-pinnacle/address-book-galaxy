@@ -91,12 +91,14 @@ export const ContactForm: React.FC = () => {
         toast({
           title: "Success",
           description: "Contact updated successfully",
+          variant: "success",
         });
       } else {
         await createContact.mutateAsync(data);
         toast({
           title: "Success",
           description: "Contact created successfully",
+          variant: "success",
         });
       }
       handleClose();

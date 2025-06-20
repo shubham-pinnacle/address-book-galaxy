@@ -1,115 +1,395 @@
 {
   "contacts": [
     {
-      "favourite": true,
-      "id": "1",
-      "name": "Shubham Ghaturle",
-      "email": "shubham.g@yopmail.com",
-      "phone": "999-444-5555",
-      "address": "Nagpur"
-    },
-    {
       "id": "2",
       "name": "Jane Smith",
       "email": "jane.smith@example.com",
-      "phone": "987-654-3210",
+      "phone": "871-969-4872",
       "address": "456 Oak Ave, Somewhere, USA 54321",
       "favourite": true
     },
     {
-      "id": "3",
-      "name": "Mike Johnson",
-      "email": "mike.johnson@example.com",
-      "phone": "555-123-4567",
-      "address": "789 Pine Rd, Elsewhere, USA 11111",
-      "favourite": true
-    },
-    {
-      "id": "4",
-      "name": "Sarah Williams",
-      "email": "sarah.williams@example.com",
-      "phone": "444-555-6666",
-      "address": "321 Elm St, Nowhere, USA 22222",
-      "favourite": true
-    },
-    {
-      "id": "5",
-      "name": "David Brown",
-      "email": "david.brown@example.com",
-      "phone": "777-888-9999",
-      "address": "654 Maple Dr, Anywhere, USA 33333",
+      "id": "30b2",
+      "name": "Raj Sharma",
+      "email": "raj@gmail.com",
+      "phone": "270-516-8956",
+      "address": "ORG Address\nओ. आर. जी. पत्ता\nORG Address 2",
       "favourite": true
     },
     {
       "id": "3",
-      "name": "Mike Johnson",
-      "email": "mike.johnson@example.com",
-      "phone": "555-123-4567",
-      "address": "789 Pine Rd, Elsewhere, USA 11111",
-      "favourite": true
+      "name": "Stephen Gardner",
+      "email": "zsanchez@hotmail.com",
+      "phone": "489-384-8428",
+      "address": "02767 Harris Rest Apt. 555, Andersonstad, OH 14418",
+      "favourite": false
     },
     {
       "id": "4",
-      "name": "Sarah Williams",
-      "email": "sarah.williams@example.com",
-      "phone": "444-555-6666",
-      "address": "321 Elm St, Nowhere, USA 22222",
+      "name": "John Adams",
+      "email": "colinroberts@lin-barnes.com",
+      "phone": "266-479-6820",
+      "address": "27877 Jimenez Course Suite 873, New Michael, LA 65367",
       "favourite": true
     },
     {
       "id": "5",
-      "name": "David Brown",
-      "email": "david.brown@example.com",
-      "phone": "777-888-9999",
-      "address": "654 Maple Dr, Anywhere, USA 33333",
+      "name": "Sarah Chambers",
+      "email": "booneryan@yahoo.com",
+      "phone": "786-373-2169",
+      "address": "0609 Michael Heights Apt. 687, Marciaville, CT 52130",
       "favourite": true
     },
     {
-      "id": "3",
-      "name": "Mike Johnson",
-      "email": "mike.johnson@example.com",
-      "phone": "555-123-4567",
-      "address": "789 Pine Rd, Elsewhere, USA 11111",
+      "id": "6",
+      "name": "William Grant",
+      "email": "jameshicks@hotmail.com",
+      "phone": "646-846-5010",
+      "address": "57872 Mark Ridge, Franciscoport, MA 66995",
       "favourite": true
     },
     {
-      "id": "4",
-      "name": "Sarah Williams",
-      "email": "sarah.williams@example.com",
-      "phone": "444-555-6666",
-      "address": "321 Elm St, Nowhere, USA 22222",
+      "id": "7",
+      "name": "Kim Erickson",
+      "email": "xcabrera@yahoo.com",
+      "phone": "573-488-5422",
+      "address": "409 Baker Shoal Apt. 097, New Cristina, WI 50333",
       "favourite": true
     },
     {
-      "id": "5",
-      "name": "David Brown",
-      "email": "david.brown@example.com",
-      "phone": "777-888-9999",
-      "address": "654 Maple Dr, Anywhere, USA 33333",
+      "id": "8",
+      "name": "Michael Johnson",
+      "email": "andrewedwards@gutierrez.biz",
+      "phone": "801-432-1916",
+      "address": "028 Ann Shore Suite 865, South Rhonda, ND 46938",
       "favourite": true
     },
     {
-      "id": "3",
-      "name": "Mike Johnson",
-      "email": "mike.johnson@example.com",
-      "phone": "555-123-4567",
-      "address": "789 Pine Rd, Elsewhere, USA 11111",
+      "id": "9",
+      "name": "Sharon Becker",
+      "email": "plee@yahoo.com",
+      "phone": "941-132-6168",
+      "address": "4375 Bailey Underpass, Keithshire, ND 50268",
+      "favourite": false
+    },
+    {
+      "id": "10",
+      "name": "Jennifer Reed",
+      "email": "bobby15@douglas-burgess.com",
+      "phone": "374-167-4456",
+      "address": "421 John Skyway Apt. 301, Riverafort, TX 18519",
+      "favourite": false
+    },
+    {
+      "id": "11",
+      "name": "Joshua Hickman",
+      "email": "mwoods@yahoo.com",
+      "phone": "317-771-9179",
+      "address": "93802 Khan Fall, Port Randyfort, WA 38442",
+      "favourite": false
+    },
+    {
+      "id": "12",
+      "name": "Alexandra Bradley",
+      "email": "justin88@small-anderson.net",
+      "phone": "758-569-3340",
+      "address": "52742 Jill Turnpike, Ashleyborough, RI 84220",
+      "favourite": false
+    },
+    {
+      "id": "13",
+      "name": "Samantha Robertson",
+      "email": "lcaldwell@woods.com",
+      "phone": "242-352-9830",
+      "address": "4549 Jose Lake, North Elizabeth, ME 21435",
+      "favourite": false
+    },
+    {
+      "id": "14",
+      "name": "Jonathan Jacobson",
+      "email": "fowlershelia@yahoo.com",
+      "phone": "864-698-8019",
+      "address": "72795 Miles Mountains, Port John, PA 11231",
+      "favourite": false
+    },
+    {
+      "id": "15",
+      "name": "Kelsey Cox",
+      "email": "poolerebecca@armstrong.com",
+      "phone": "470-324-3266",
+      "address": "39718 Stokes Motorway Apt. 867, New Stevenport, AK 52398",
+      "favourite": false
+    },
+    {
+      "id": "16",
+      "name": "Aaron Robinson",
+      "email": "hendersonisabella@mcknight.info",
+      "phone": "193-873-1771",
+      "address": "26567 Bennett Springs Apt. 512, Ricebury, AL 99614",
       "favourite": true
     },
     {
-      "id": "4",
-      "name": "Sarah Williams",
-      "email": "sarah.williams@example.com",
-      "phone": "444-555-6666",
-      "address": "321 Elm St, Nowhere, USA 22222",
+      "id": "17",
+      "name": "Edwin Nunez",
+      "email": "pmorrow@yahoo.com",
+      "phone": "256-742-3621",
+      "address": "10690 Jamie Courts Apt. 790, Lake Bradley, IN 71248",
+      "favourite": false
+    },
+    {
+      "id": "18",
+      "name": "Scott Brown",
+      "email": "lisadennis@yahoo.com",
+      "phone": "710-165-7304",
+      "address": "42836 Hill Point Apt. 687, West Shellyfurt, NC 42278",
+      "favourite": false
+    },
+    {
+      "id": "19",
+      "name": "Jennifer Evans",
+      "email": "oallen@mathews-thomas.info",
+      "phone": "710-579-9669",
+      "address": "PSC 8668, Box 8263, APO AA 27152",
+      "favourite": false
+    },
+    {
+      "id": "20",
+      "name": "Bob Cole",
+      "email": "nicholsmaria@gmail.com",
+      "phone": "666-981-1188",
+      "address": "39837 Molly Isle, Susantown, ID 97687",
       "favourite": true
     },
     {
-      "id": "5",
-      "name": "David Brown",
-      "email": "david.brown@example.com",
-      "phone": "777-888-9999",
-      "address": "654 Maple Dr, Anywhere, USA 33333",
+      "id": "21",
+      "name": "Zachary Mendoza",
+      "email": "randyallen@rowe-james.net",
+      "phone": "798-649-5371",
+      "address": "5877 Leah Stravenue Suite 535, Robertshire, IN 97658",
+      "favourite": false
+    },
+    {
+      "id": "22",
+      "name": "Dean Donovan",
+      "email": "elijah53@yahoo.com",
+      "phone": "214-400-8123",
+      "address": "8547 Murray Street, Garyside, HI 71559",
+      "favourite": true
+    },
+    {
+      "id": "23",
+      "name": "Tina Warren DVM",
+      "email": "duranrobert@hall.net",
+      "phone": "564-103-5315",
+      "address": "977 Adam Plaza, Smithhaven, KY 70721",
+      "favourite": true
+    },
+    {
+      "id": "24",
+      "name": "Alicia Li",
+      "email": "danieldavis@gmail.com",
+      "phone": "619-208-5889",
+      "address": "4615 Stevens Gardens Apt. 410, South Nicholasside, AR 83960",
+      "favourite": true
+    },
+    {
+      "id": "25",
+      "name": "Christopher Porter",
+      "email": "ariel18@gmail.com",
+      "phone": "256-482-3646",
+      "address": "0148 Harry Vista Suite 039, Port Lori, MO 10585",
+      "favourite": true
+    },
+    {
+      "id": "26",
+      "name": "Justin Knight",
+      "email": "patrick21@hotmail.com",
+      "phone": "713-431-9005",
+      "address": "16315 Novak Islands Apt. 477, West Angela, NE 24846",
+      "favourite": true
+    },
+    {
+      "id": "27",
+      "name": "Mary Miller",
+      "email": "jennifermiller@gmail.com",
+      "phone": "214-471-6038",
+      "address": "655 Christopher Inlet, Wardview, DC 11943",
+      "favourite": true
+    },
+    {
+      "id": "28",
+      "name": "Jerry Peters",
+      "email": "johnsonmichael@gmail.com",
+      "phone": "159-346-2290",
+      "address": "0466 Jenny Points Apt. 982, Jacksonview, KY 65135",
+      "favourite": true
+    },
+    {
+      "id": "29",
+      "name": "Christopher Hill",
+      "email": "xpatton@yahoo.com",
+      "phone": "849-597-2133",
+      "address": "USCGC Wheeler, FPO AE 60513",
+      "favourite": true
+    },
+    {
+      "id": "31",
+      "name": "Douglas Hartman",
+      "email": "frederickjames@hotmail.com",
+      "phone": "371-640-7932",
+      "address": "737 Guerra Cliff, Chambersberg, ME 32223",
+      "favourite": true
+    },
+    {
+      "id": "32",
+      "name": "Christian Henderson",
+      "email": "colecarla@hotmail.com",
+      "phone": "652-873-4295",
+      "address": "058 Daniel Gateway Suite 290, Rasmussenmouth, NE 14387",
+      "favourite": false
+    },
+    {
+      "id": "33",
+      "name": "David Dixon",
+      "email": "dbrooks@chapman.com",
+      "phone": "508-787-7118",
+      "address": "1125 Cooper Tunnel Apt. 875, Davismouth, CA 39857",
+      "favourite": false
+    },
+    {
+      "id": "34",
+      "name": "Michael Johnson",
+      "email": "byrdfrank@hotmail.com",
+      "phone": "629-562-2982",
+      "address": "258 Mullen Fort, Sotoburgh, TN 57141",
+      "favourite": true
+    },
+    {
+      "id": "35",
+      "name": "Omar Ware",
+      "email": "tprice@gmail.com",
+      "phone": "330-165-6539",
+      "address": "182 Nguyen Mount, West Emilyfort, SC 41579",
+      "favourite": true
+    },
+    {
+      "id": "36",
+      "name": "Lisa Matthews",
+      "email": "megan92@hotmail.com",
+      "phone": "702-667-4770",
+      "address": "912 Wilson Inlet Apt. 252, Barnesberg, MS 55949",
+      "favourite": true
+    },
+    {
+      "id": "37",
+      "name": "Mark Steele",
+      "email": "tracytaylor@wilkinson-harvey.com",
+      "phone": "107-172-1964",
+      "address": "USCGC Taylor, FPO AA 74108",
+      "favourite": true
+    },
+    {
+      "id": "38",
+      "name": "Kathleen Cohen",
+      "email": "fburns@hotmail.com",
+      "phone": "169-132-6413",
+      "address": "0438 Jackson Mount, Dunnville, DE 35613",
+      "favourite": true
+    },
+    {
+      "id": "39",
+      "name": "Samantha Richardson",
+      "email": "bpayne@fitzgerald.com",
+      "phone": "626-343-5562",
+      "address": "4517 Kimberly Freeway, Port Joan, MI 93660",
+      "favourite": false
+    },
+    {
+      "id": "40",
+      "name": "Jessica Jensen",
+      "email": "lindahudson@campbell.com",
+      "phone": "319-652-3167",
+      "address": "126 Victoria Way Apt. 232, Mariafurt, FL 76185",
+      "favourite": false
+    },
+    {
+      "id": "41",
+      "name": "Lori Brooks",
+      "email": "powellkara@mayer.com",
+      "phone": "348-903-8749",
+      "address": "751 Robinson Meadow, South Joseph, LA 44771",
+      "favourite": false
+    },
+    {
+      "id": "42",
+      "name": "Bianca Phelps",
+      "email": "williamsconnie@yahoo.com",
+      "phone": "294-196-2588",
+      "address": "7063 Nicole Hollow, Port Sarah, CO 86299",
+      "favourite": false
+    },
+    {
+      "id": "43",
+      "name": "Bradley Beck",
+      "email": "sanderskevin@fischer.com",
+      "phone": "462-533-7735",
+      "address": "29387 Alan Junctions Apt. 627, East Patrickville, MD 48678",
+      "favourite": false
+    },
+    {
+      "id": "44",
+      "name": "Breanna Ayala",
+      "email": "caseyelliott@santos.com",
+      "phone": "984-846-1887",
+      "address": "PSC 9731, Box 1219, APO AP 50836",
+      "favourite": true
+    },
+    {
+      "id": "45",
+      "name": "Jeffrey Moody",
+      "email": "deanna38@greene.com",
+      "phone": "162-512-6559",
+      "address": "89836 Lucas Tunnel Apt. 761, South Danielle, NC 02082",
+      "favourite": true
+    },
+    {
+      "id": "46",
+      "name": "Dr. Bonnie Valencia",
+      "email": "amy27@gmail.com",
+      "phone": "354-296-4116",
+      "address": "43006 Fuller Parkway, Hendersonfurt, SC 70829",
+      "favourite": false
+    },
+    {
+      "id": "47",
+      "name": "Brittany Miller",
+      "email": "terrimoore@myers-walters.com",
+      "phone": "243-532-4006",
+      "address": "303 Sandy Crescent Suite 990, Elizabethburgh, AL 93286",
+      "favourite": false
+    },
+    {
+      "id": "48",
+      "name": "Adam Crawford",
+      "email": "gary24@hotmail.com",
+      "phone": "573-355-2235",
+      "address": "6481 Joseph Ports, South Spencerstad, NM 74803",
+      "favourite": false
+    },
+    {
+      "id": "49",
+      "name": "Christopher Ayala",
+      "email": "joycesmith@sanchez.com",
+      "phone": "927-982-2604",
+      "address": "08635 Robert Stravenue, Josephland, MN 16151",
+      "favourite": true
+    },
+    {
+      "id": "50",
+      "name": "Stephanie White",
+      "email": "djones@ayala-collins.com",
+      "phone": "767-653-1241",
+      "address": "3494 Steven Ramp, Cuevasborough, ND 32630",
       "favourite": true
     }
   ]
