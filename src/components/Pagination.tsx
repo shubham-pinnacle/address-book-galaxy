@@ -2,12 +2,14 @@
 import React from 'react';
 import { Box, Button, Typography } from '@mui/material';
 import { ChevronLeft, ChevronRight } from '@mui/icons-material';
+import { paginationStyles } from '../styles/Pagination.styles';
 
-interface PaginationProps {
+export interface PaginationProps {
   currentPage: number;
   totalPages: number;
   onPageChange: (page: number) => void;
   loading?: boolean;
+  sx?: any;
 }
 
 export const Pagination: React.FC<PaginationProps> = ({
@@ -33,16 +35,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   }
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: 2,
-        mt: 4,
-        mb: 2,
-      }}
-    >
+    <Box sx={paginationStyles.root}>
       <Button
         variant="outlined"
         startIcon={<ChevronLeft />}
@@ -52,7 +45,7 @@ export const Pagination: React.FC<PaginationProps> = ({
         Previous
       </Button>
 
-      <Typography variant="body1" sx={{ minWidth: '100px', textAlign: 'center' }}>
+      <Typography variant="body1" sx={paginationStyles.pageText}>
         Page {currentPage} of {totalPages}
       </Typography>
 
