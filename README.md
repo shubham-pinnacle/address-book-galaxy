@@ -24,21 +24,39 @@ A modern, professional contact management application built with React, Material
 - **TypeScript** - Type safety throughout the application
 - **json-server** - Mock REST API for development
 
-## 📦 Installation & Setup
+## ⚡ Quick Start
 
-1. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+Follow these steps to run both the mock API server and the React app:
 
-2. **Start the json-server (mock API):**
-   ```bash
-   npx json-server --watch db.json --port 3001 --routes routes.json
-   ```
+### 1. Install dependencies
+```bash
+npm install
+```
 
-3. **Start the development server:**
-   ```bash
-   npm run dev
+### 2. Start the Mock API Server (json-server)
+In a terminal, run:
+```bash
+npx json-server --watch db.json --port 3001 --routes routes.json
+```
+- This starts the backend at [http://localhost:3001](http://localhost:3001).
+- API endpoints will be available under `/api` (e.g., `http://localhost:3001/api/contacts`).
+
+### 3. Start the React Development Server
+In a **separate terminal**, run:
+```bash
+npm run dev
+```
+- The app will be available at [http://localhost:8080](http://localhost:8080).
+
+### 4. Open the App
+Visit [http://localhost:8080](http://localhost:8080) in your browser.
+
+#### Troubleshooting
+- If you get an error about ports already in use, make sure nothing else is running on ports 3001 or 8080, or change the ports in the commands above.
+- Both servers must be running for the app to work correctly.
+
+---
+
    ```
 
 4. **Open your browser:**

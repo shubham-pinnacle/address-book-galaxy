@@ -1,0 +1,33 @@
+.formRoot {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: hidden;
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+.errorText {
+  color: #d32f2f;
+  font-size: 0.875rem;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.loadingSpinner {
+  margin-left: 8px;
+}
+
+.modalContent {
+  overflow: hidden !important;
+  max-width: 100vw;
+  max-height: 100vh;
+  box-sizing: border-box;
+  padding: 0;
+}

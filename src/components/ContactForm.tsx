@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import styles from './ContactForm.module.css';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -133,22 +134,9 @@ export const ContactForm: React.FC = () => {
       <DialogTitle>
         {editingContactId ? 'Edit Contact' : 'Add New Contact'}
       </DialogTitle>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <DialogContent sx={{
-  overflowX: 'hidden',
-  maxWidth: '100%',
-  p: { xs: 1.5, sm: 3 },
-  boxSizing: 'border-box',
-}}>
-          <Box sx={{
-  display: 'flex',
-  flexDirection: 'column',
-  gap: { xs: 1.5, sm: 2 },
-  pt: 1,
-  overflowX: 'hidden',
-  maxWidth: '100%',
-  px: { xs: 1, sm: 0 },
-}}>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.formRoot}>
+        <DialogContent className={styles.modalContent}>
+          <Box className={styles.formRoot}>
             <Controller
               name="name"
               control={control}
@@ -159,9 +147,7 @@ export const ContactForm: React.FC = () => {
                   fullWidth
                   error={!!errors.name}
                   helperText={errors.name?.message}
-                  sx={{
-                    mb: { xs: 1, sm: 0 },
-                  }}
+                  FormHelperTextProps={{ className: styles.errorText }}
                 />
               )}
             />
@@ -177,9 +163,7 @@ export const ContactForm: React.FC = () => {
                   fullWidth
                   error={!!errors.email}
                   helperText={errors.email?.message}
-                  sx={{
-                    mb: { xs: 1, sm: 0 },
-                  }}
+                  FormHelperTextProps={{ className: styles.errorText }}
                 />
               )}
             />
@@ -195,9 +179,7 @@ export const ContactForm: React.FC = () => {
                   fullWidth
                   error={!!errors.phone}
                   helperText={errors.phone?.message}
-                  sx={{
-                    mb: { xs: 1, sm: 0 },
-                  }}
+                  FormHelperTextProps={{ className: styles.errorText }}
                 />
               )}
             />
@@ -214,10 +196,7 @@ export const ContactForm: React.FC = () => {
                   fullWidth
                   error={!!errors.address}
                   helperText={errors.address?.message}
-                  sx={{
-                    maxWidth: '100%',
-                    mb: { xs: 1, sm: 0 },
-                  }}
+                  FormHelperTextProps={{ className: styles.errorText }}
                   inputProps={{
                     style: {
                       whiteSpace: 'pre-wrap',
@@ -242,27 +221,20 @@ export const ContactForm: React.FC = () => {
             />
           </Box>
         </DialogContent>
-        <DialogActions sx={{
-  flexDirection: { xs: 'column', sm: 'row' },
-  gap: { xs: 1, sm: 2 },
-  px: { xs: 1, sm: 3 },
-  pb: { xs: 2, sm: 3 },
-}}>
-  <Button
-    onClick={handleClose}
-    disabled={isLoading}
-    fullWidth={true}
-    sx={{ minWidth: 100 }}
-  >
-    Cancel
-  </Button>
-  <Button
-    type="submit"
-    variant="contained"
-    disabled={!isValid || isLoading}
-    fullWidth={true}
-    sx={{ minWidth: 100 }}
-            startIcon={isLoading ? <CircularProgress size={20} /> : null}
+        <DialogActions className={styles.actions}>
+          <Button
+            onClick={handleClose}
+            disabled={isLoading}
+            fullWidth={true}
+          >
+            Cancel
+          </Button>
+          <Button
+            type="submit"
+            variant="contained"
+            disabled={!isValid || isLoading}
+            fullWidth={true}
+            startIcon={isLoading ? <CircularProgress size={20} className={styles.loadingSpinner} /> : null}
           >
             {editingContactId ? 'Update' : 'Create'}
           </Button>

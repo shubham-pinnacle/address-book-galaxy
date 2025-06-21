@@ -9,14 +9,6 @@
       "favourite": true
     },
     {
-      "id": "30b2",
-      "name": "Raj Sharma",
-      "email": "raj@gmail.com",
-      "phone": "270-516-8956",
-      "address": "ORG Address\nओ. आर. जी. पत्ता\nORG Address 2",
-      "favourite": true
-    },
-    {
       "id": "3",
       "name": "Stephen Gardner",
       "email": "zsanchez@hotmail.com",
@@ -86,7 +78,7 @@
       "email": "mwoods@yahoo.com",
       "phone": "317-771-9179",
       "address": "93802 Khan Fall, Port Randyfort, WA 38442",
-      "favourite": false
+      "favourite": true
     },
     {
       "id": "12",
@@ -407,6 +399,14 @@
       "phone": "888-888-4444",
       "address": "ntg",
       "favourite": false
+    },
+    {
+      "id": "cbc2",
+      "name": "pranay ",
+      "email": "pranay@gmail.com",
+      "phone": "888-888-8888",
+      "address": "Nagpur",
+      "favourite": true
     }
   ]
 }
