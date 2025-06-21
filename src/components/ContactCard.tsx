@@ -8,6 +8,7 @@ import {
   Box,
   Chip,
 } from '@mui/material';
+import { contactCardStyles, favIconStyle } from '../styles/ContactCard.styles';
 import {
   Favorite,
   FavoriteBorder,
@@ -46,28 +47,13 @@ export const ContactCard: React.FC<ContactCardProps> = ({ contact }) => {
 
   return (
     <Card
-  sx={{
-    cursor: 'pointer',
-    transition: 'all 0.2s ease-in-out',
-    '&:hover': {
-      transform: 'translateY(-4px)',
-      boxShadow: 4,
-    },
-    position: 'relative',
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    maxWidth: '100%',
-    boxSizing: 'border-box',
-    overflowX: 'hidden',
-    p: { xs: 1, sm: 2 },
-  }}
-  onClick={handleCardClick}
+      sx={contactCardStyles.card}
+      onClick={handleCardClick}
     >
-      <CardContent sx={{ flexGrow: 1, pb: 1, maxWidth: '100%', overflowX: 'hidden', boxSizing: 'border-box' }}>
-        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', mb: 2, flexWrap: 'wrap', maxWidth: '100%', overflowX: 'hidden' }}>
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <Typography variant="h6" component="h3" sx={{ fontWeight: 600, color: 'primary.main', wordBreak: 'break-word', maxWidth: '100%' }}>
+      <CardContent sx={contactCardStyles.cardContent}>
+        <Box sx={contactCardStyles.headerRow}>
+          <Box sx={contactCardStyles.headerLeft}>
+            <Typography variant="h6" component="h3" sx={contactCardStyles.nameText}>
               {contact.name}
             </Typography>
             {contact.favourite && (
@@ -76,23 +62,23 @@ export const ContactCard: React.FC<ContactCardProps> = ({ contact }) => {
                 size="small"
                 color="primary"
                 variant="outlined"
-                sx={{ ml: 1 }}
+                sx={contactCardStyles.favChip}
               />
             )}
           </Box>
           <IconButton
             size="small"
             onClick={handleToggleFavourite}
-            sx={{ color: contact.favourite ? 'error.main' : 'grey.400' }}
+            sx={favIconStyle(contact.favourite)}
           >
             {contact.favourite ? <Favorite /> : <FavoriteBorder />}
           </IconButton>
         </Box>
 
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1, maxWidth: '100%', overflowX: 'hidden' }}>
+        <Box sx={contactCardStyles.infoCol}>
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-            <Email sx={{ fontSize: 16, color: 'grey.600' }} />
-            <Typography variant="body2" color="textSecondary" sx={{ wordBreak: 'break-word', maxWidth: '100%' }}>
+            <Email sx={contactCardStyles.icon} />
+            <Typography variant="body2" color="textSecondary" sx={contactCardStyles.emailText}>
               {contact.email}
             </Typography>
           </Box>

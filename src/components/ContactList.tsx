@@ -14,6 +14,7 @@ import {
   Alert,
   Paper,
 } from '@mui/material';
+import { contactListStyles } from '../styles/ContactList.styles';
 import { Search, Add, PersonAdd } from '@mui/icons-material';
 import { useContactStore } from '../store/useContactStore';
 import { useStore } from '../store';
@@ -103,33 +104,19 @@ export const ContactList: React.FC = () => {
   return (
     <Box sx={{ p: 3 }}>
       {/* Header */}
-      <Box sx={{
-  mb: 2,
-  width: { xs: '100%', md: '50%' },
-  margin: '0 auto',
-  textAlign: 'left',
-  boxSizing: 'border-box',
-  overflowX: 'hidden',
-}}>
-        <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 700, color: 'primary.main', textAlign: 'left' }}>
+      <Box sx={contactListStyles.headerBox}>
+        <Typography variant="h3" component="h1" gutterBottom sx={contactListStyles.title}>
           Contact Manager
         </Typography>
-        <Typography variant="h6" color="textSecondary" sx={{ textAlign: 'left', mb:2 }}>
+        <Typography variant="h6" color="textSecondary" sx={contactListStyles.subtitle}>
           Manage your contacts with ease
         </Typography>
       </Box>
 
 
       {/* Search and Filters */}
-      <Paper sx={{
-  p: { xs: 1.5, sm: 3 },
-  mb: 4,
-  width: { xs: '100%', md: '50%' },
-  margin: '0 auto',
-  boxSizing: 'border-box',
-  overflowX: 'hidden',
-}}>
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', md: 'row' }, justifyContent: 'space-between', alignItems: { xs: 'stretch', md: 'center' }, gap: 2 }}>
+      <Paper sx={contactListStyles.searchPaper}>
+        <Box sx={contactListStyles.searchFilterBox}>
           <TextField
             fullWidth
             placeholder="Search contacts by name..."
@@ -142,10 +129,10 @@ export const ContactList: React.FC = () => {
                 </InputAdornment>
               ),
             }}
-            sx={{ maxWidth: { md: 400 } }}
+            sx={contactListStyles.textField}
           />
 
-          <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: 2, flexWrap: 'nowrap', whiteSpace: 'nowrap' }}>
+          <Box sx={contactListStyles.filterActionBox}>
             <FormControlLabel
               control={
                 <Switch
@@ -155,15 +142,15 @@ export const ContactList: React.FC = () => {
                 />
               }
               label="Show Favourites Only"
-              sx={{ mr: 0, whiteSpace: 'nowrap' }}
+              sx={contactListStyles.favSwitchLabel}
             />
             <Button
               variant="contained"
               startIcon={<PersonAdd />}
               onClick={handleAddContact}
-              sx={{ flexShrink: 0, whiteSpace: 'nowrap', minWidth: { xs: 40, md: 120 }, px: { xs: 1, md: 2 } }}
+              sx={contactListStyles.addContactBtn}
             >
-              <Box component="span" sx={{ display: { xs: 'none', md: 'inline' } }}>
+              <Box component="span" sx={contactListStyles.addContactBtnText}>
                 Add Contact
               </Box>
             </Button>
@@ -173,14 +160,14 @@ export const ContactList: React.FC = () => {
 
       {/* Loading State */}
       {isLoading && (
-        <Box sx={{ display: 'flex', justifyContent: 'center', py: 8, px: { xs: 1, md: 0 }, boxSizing: 'border-box', overflowX: 'hidden' }}>
+        <Box sx={contactListStyles.loadingBox}>
           <CircularProgress size={48} />
         </Box>
       )}
 
       {/* Empty State */}
       {!isLoading && contactsToDisplay.length === 0 && (
-        <Box sx={{ textAlign: 'center', py: 8, px: { xs: 1, md: 0 }, boxSizing: 'border-box', overflowX: 'hidden' }}>
+        <Box sx={contactListStyles.emptyBox}>
           <Typography variant="h5" color="textSecondary" gutterBottom>
             {searchQuery || showFavouritesOnly ? 'No contacts found' : 'No contacts yet'}
           </Typography>
@@ -206,24 +193,15 @@ export const ContactList: React.FC = () => {
       {/* Contact Grid */}
       {!isLoading && contactsToDisplay.length > 0 && (
         <>
-          <Box sx={{ mb: 2, px: { xs: 1, md: 0 }, boxSizing: 'border-box', overflowX: 'hidden' }}>
-            <Typography variant="body1" color="textSecondary"  sx={{ ml: { xs: 0, md: 46 }, mb:2 , mt:2, wordBreak: 'break-word', maxWidth: '100%' }}>
+          <Box sx={contactListStyles.foundCountBox}>
+            <Typography variant="body1" color="textSecondary"  sx={contactListStyles.foundCountText}>
               {data?.total} contact{data?.total !== 1 ? 's' : ''} found
               {searchQuery && ` for "${searchQuery}"`}
               {showFavouritesOnly && ' (favourites only)'}
             </Typography>
           </Box>
 
-          <Box sx={{
-  width: { xs: '100%', md: '50%' },
-  margin: '0 auto',
-  display: 'flex',
-  flexDirection: 'column',
-  gap: 3,
-  px: { xs: 1, md: 0 },
-  boxSizing: 'border-box',
-  overflowX: 'hidden',
-}}>
+          <Box sx={contactListStyles.contactsGrid}>
             {contactsToDisplay.map((contact, idx) => (
               <ContactCard key={`${contact.id}-${idx}`} contact={contact} />
             ))}
@@ -231,7 +209,6 @@ export const ContactList: React.FC = () => {
 
           <Pagination
             currentPage={currentPage}
-            sx={{ width: '100%', overflowX: 'hidden' }}
             totalPages={data?.totalPages || 1}
             onPageChange={handlePageChange}
             loading={isLoading}

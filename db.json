@@ -38,7 +38,7 @@
       "email": "jameshicks@hotmail.com",
       "phone": "646-846-5010",
       "address": "57872 Mark Ridge, Franciscoport, MA 66995",
-      "favourite": true
+      "favourite": false
     },
     {
       "id": "7",
@@ -46,7 +46,7 @@
       "email": "xcabrera@yahoo.com",
       "phone": "573-488-5422",
       "address": "409 Baker Shoal Apt. 097, New Cristina, WI 50333",
-      "favourite": true
+      "favourite": false
     },
     {
       "id": "8",
@@ -54,7 +54,7 @@
       "email": "andrewedwards@gutierrez.biz",
       "phone": "801-432-1916",
       "address": "028 Ann Shore Suite 865, South Rhonda, ND 46938",
-      "favourite": true
+      "favourite": false
     },
     {
       "id": "9",
@@ -71,14 +71,6 @@
       "phone": "374-167-4456",
       "address": "421 John Skyway Apt. 301, Riverafort, TX 18519",
       "favourite": false
-    },
-    {
-      "id": "11",
-      "name": "Joshua Hickman",
-      "email": "mwoods@yahoo.com",
-      "phone": "317-771-9179",
-      "address": "93802 Khan Fall, Port Randyfort, WA 38442",
-      "favourite": true
     },
     {
       "id": "12",
@@ -118,7 +110,7 @@
       "email": "hendersonisabella@mcknight.info",
       "phone": "193-873-1771",
       "address": "26567 Bennett Springs Apt. 512, Ricebury, AL 99614",
-      "favourite": true
+      "favourite": false
     },
     {
       "id": "17",

@@ -1,6 +1,7 @@
 
 import React, { useEffect } from 'react';
-import styles from './ContactForm.module.css';
+import styles from '../styles/ContactForm.module.css';
+import { contactFormStyles } from '../styles/ContactForm.styles';
 import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -122,15 +123,7 @@ export const ContactForm: React.FC = () => {
   const isLoading = createContact.isPending || updateContact.isPending;
 
   return (
-    <Dialog open={isContactFormOpen} onClose={handleClose} maxWidth="sm" fullWidth sx={{
-  '& .MuiDialog-paper': {
-    width: '100%',
-    m: { xs: 1, sm: 'auto' },
-    maxWidth: { xs: '95vw', sm: 600 },
-    minWidth: { xs: 'unset', sm: 400 },
-    boxSizing: 'border-box',
-  },
-}}>
+    <Dialog open={isContactFormOpen} onClose={handleClose} maxWidth="sm" fullWidth sx={contactFormStyles.dialog}>
       <DialogTitle>
         {editingContactId ? 'Edit Contact' : 'Add New Contact'}
       </DialogTitle>
@@ -198,12 +191,7 @@ export const ContactForm: React.FC = () => {
                   helperText={errors.address?.message}
                   FormHelperTextProps={{ className: styles.errorText }}
                   inputProps={{
-                    style: {
-                      whiteSpace: 'pre-wrap',
-                      wordBreak: 'break-word',
-                      overflowX: 'hidden',
-                      maxWidth: '100%',
-                    }
+                    sx: contactFormStyles.addressInput
                   }}
                 />
               )}
