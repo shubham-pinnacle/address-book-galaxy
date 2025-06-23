@@ -55,7 +55,6 @@ export const ContactCard: React.FC<ContactCardProps> = ({ contact }) => {
           <Box sx={contactCardStyles.headerLeft}>
             <Typography variant="h6" component="h3" sx={contactCardStyles.nameText}>
               {contact.name}
-            </Typography>
             {contact.favourite && (
               <Chip
                 label="Favourite"
@@ -65,6 +64,7 @@ export const ContactCard: React.FC<ContactCardProps> = ({ contact }) => {
                 sx={contactCardStyles.favChip}
               />
             )}
+            </Typography>
           </Box>
           <IconButton
             size="small"
